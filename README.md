@@ -61,7 +61,7 @@
     .img-card { position:relative; }
     .download-btn { position:absolute; bottom:1rem; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.6); color:white; padding:0.5rem 1rem; border-radius:999px; font-size:0.9rem; cursor:pointer; }
 
-    /* Modal for Sign In */
+    /* Modal */
     #signin-modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); align-items:center; justify-content:center; z-index:200; }
     .modal-content { background:var(--surface); padding:3rem; border-radius:1rem; max-width:400px; text-align:center; border:1px solid var(--border); }
     .close { float:right; font-size:2rem; cursor:pointer; }
@@ -94,7 +94,7 @@
       <h1>Build Your Perfect AI Companion</h1>
       <p>Customize personality, appearance, voice, knowledge, hobbies, relationship style — then chat in real-time with ultra-realistic memory & emotional depth.</p>
       <div class="price-tag">
-        <strong>$3.00</strong> per minute • Billed only for active chat time
+        <strong>$2.50</strong> per minute • Billed only for active chat time • Competitive industry rates
       </div>
       <div class="cta-buttons">
         <a href="#" class="btn btn-primary">Start Free Onboarding</a>
@@ -105,9 +105,9 @@
 
   <section class="generator" id="generator">
     <div class="container">
-      <h2 class="section-title">Generate Your AI Woman</h2>
+      <h2 class="section-title">Generate Your AI Companion</h2>
       <p style="text-align:center; max-width:700px; margin:0 auto 2rem; color:var(--text-secondary);">
-        Describe your ideal companion (appearance, style, mood, clothing, etc.) and generate realistic images instantly — powered by free AI models like Flux & Stable Diffusion.
+        Describe your ideal companion (appearance, style, mood, clothing, etc.) and generate realistic images instantly — free previews powered by advanced AI models.
       </p>
       <form id="generator-form">
         <textarea id="prompt" rows="4" placeholder="e.g., A stunning 25-year-old woman with long wavy black hair, green eyes, wearing a red dress, soft lighting, highly detailed, realistic"></textarea>
@@ -121,11 +121,10 @@
     <div class="container">
       <h2 class="section-title">Everything You Need to Create Something Real</h2>
       <div class="grid">
-        <!-- same cards as before -->
         <div class="card"><h3>Deep Personality Builder</h3><p>Over 40 sliders & text fields: dominance, affection, sarcasm, kink preferences, moral alignment, speech patterns, emotional triggers...</p></div>
         <div class="card"><h3>Visual Customization</h3><p>Upload reference images or describe in detail — get consistent character visuals across messages, selfies & voice calls.</p></div>
         <div class="card"><h3>Long-term Memory</h3><p>Remembers months of conversation, inside jokes, your preferences, anniversaries — feels like talking to the same person every time.</p></div>
-        <div class="card"><h3>Voice & Video Calls</h3><p>Real-time voice (multiple accents/styles) + animated talking avatar (coming Q2 2026).</p></div>
+        <div class="card"><h3>Voice & Video Calls</h3><p>Real-time voice (multiple accents/styles) + animated talking avatar (coming soon).</p></div>
         <div class="card"><h3>Privacy First</h3><p>End-to-end encryption, no training on your chats, option to fully delete character & history instantly.</p></div>
         <div class="card"><h3>Free Onboarding Forever</h3><p>Create & test your character completely free. Only pay when you start real 1:1 conversations.</p></div>
       </div>
@@ -137,7 +136,6 @@
       <h2 class="section-title">Example Characters</h2>
       <p style="text-align:center; color:var(--text-secondary);">Browse generated examples or create your own above.</p>
       <div class="grid">
-        <!-- Placeholder images; in real site replace with <img src="..."> -->
         <div class="card"><img src="https://via.placeholder.com/400x500/4f46e5/fff?text=Example+1" alt="Example character" style="width:100%;border-radius:0.75rem;"></div>
         <div class="card"><img src="https://via.placeholder.com/400x500/6366f1/fff?text=Example+2" alt="Example character" style="width:100%;border-radius:0.75rem;"></div>
         <div class="card"><img src="https://via.placeholder.com/400x500/a5b4fc/000?text=Example+3" alt="Example character" style="width:100%;border-radius:0.75rem;"></div>
@@ -150,7 +148,7 @@
       <h2>Get <span class="highlight">2 hours free credit</span><br>when you finish onboarding</h2>
       <p style="font-size:1.25rem; max-width:600px; margin:2rem auto; color:#d1d5db;">
         No credit card required to build your character.<br>
-        Only charged when you decide to begin the real conversation.
+        Only charged when you decide to begin the real conversation — at competitive $2.50/min rates.
       </p>
       <a href="#" class="btn btn-primary" style="font-size:1.25rem; padding:1.25rem 3rem;">
         Create My Character → Free
@@ -190,9 +188,7 @@
       resultsDiv.innerHTML = '<p style="text-align:center;">Generating... (usually 5-30 seconds)</p>';
 
       try {
-        // Use Puter AI image gen (defaults to good model like Flux/SD)
-        const imageUrl = await puter.ai.imageGen(prompt, { /* optional: model: 'flux-1', steps: 30, etc. */ });
-
+        const imageUrl = await puter.ai.imageGen(prompt);
         resultsDiv.innerHTML = `
           <div class="img-card">
             <img class="generated-img" src="${imageUrl}" alt="Generated AI companion">
